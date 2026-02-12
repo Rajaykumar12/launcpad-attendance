@@ -89,7 +89,7 @@ export default function GuestRegistrationPage() {
                             width: "64px",
                             height: "64px",
                             margin: "0 auto 1rem",
-                            background: "var(--accent-primary)",
+                            background: "#374151",
                             borderRadius: "50%",
                             display: "flex",
                             alignItems: "center",

@@ -1,6 +1,13 @@
+export type Club = "SOSC" | "Challengers" | "SRC";
+
 export interface Member {
     serialNumber: string;
-    // Add other member fields as needed
+    name: string;
+    usn: string;
+    email?: string;
+    phone?: string;
+    club: Club;
+    joinedAt?: Date;
 }
 
 export interface Guest {
@@ -18,6 +25,8 @@ export interface AttendanceRecord {
     type: "member" | "guest";
     checkIn: Date;
     checkOut: Date | null;
+    userName?: string;
+    club?: Club;
 }
 
 export interface SessionData {
@@ -26,4 +35,33 @@ export interface SessionData {
     type: "member" | "guest";
     checkInTime: string;
     userName?: string;
+}
+
+export interface AdminUser {
+    uid: string;
+    email: string;
+    name: string;
+    club: Club;
+}
+
+export interface AdminSession {
+    uid: string;
+    email: string;
+    name: string;
+    club: Club;
+}
+
+export interface MemberWithAttendance extends Member {
+    totalCheckIns: number;
+    lastCheckIn?: Date;
+    totalHours: number;
+    attendanceRecords: AttendanceRecord[];
+}
+
+export interface ClubStats {
+    club: Club;
+    totalMembers: number;
+    totalCheckIns: number;
+    activeToday: number;
+    averageHoursPerMember: number;
 }

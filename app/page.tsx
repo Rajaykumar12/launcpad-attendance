@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { doc, getDoc, collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 import { saveSession, getSession } from "@/lib/session";
-import { User } from "lucide-react";
 
 export default function HomePage() {
   const [serialNumber, setSerialNumber] = useState("");
@@ -77,36 +76,61 @@ export default function HomePage() {
   };
 
   return (
-    <div className="container" style={{ minHeight: "100vh", display: "flex", alignItems: "center" }}>
+    <div className="container" style={{ flex: 1, display: "flex", alignItems: "center" }}>
       <div className="card" style={{ width: "100%" }}>
         <div className="text-center mb-6">
-          <div
-            style={{
-              width: "64px",
-              height: "64px",
-              margin: "0 auto 1rem",
-              background: "var(--accent-primary)",
-              borderRadius: "50%",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <User size={32} color="white" />
+          {/* College Logo */}
+          <div style={{ margin: "0 auto 1rem", display: "flex", justifyContent: "center" }}>
+            <img
+              src="/logos/sahyadri.png"
+              alt="Sahyadri College"
+              style={{ width: "72px", height: "72px", objectFit: "contain", borderRadius: "0.5rem", display: "block" }}
+              onError={(e) => {
+                (e.target as HTMLImageElement).style.display = "none";
+                (e.target as HTMLImageElement).nextElementSibling!.removeAttribute("style");
+              }}
+            />
+            <div style={{ display: "none", width: "72px", height: "72px", margin: "0 auto", background: "#f3f4f6", borderRadius: "0.5rem", lineHeight: "72px", fontSize: "0.65rem", color: "#9ca3af", textAlign: "center" }}>
+              College
+            </div>
           </div>
+
           <h1 style={{ fontSize: "1.875rem", fontWeight: "700", marginBottom: "0.5rem" }}>
-            Welcome
+            Sahyadri Launchpad
           </h1>
-          <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
-            Enter your USN to check in
-          </p>
+
+          {/* Club Logos */}
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1.5rem", marginBottom: "0.5rem" }}>
+            {[
+              { src: "/logos/sosc.png", alt: "SOSC", label: "SOSC" },
+              { src: "/logos/challengers.png", alt: "Challengers", label: "Challengers" },
+              { src: "/logos/src.png", alt: "SRC", label: "SRC" },
+            ].map((club) => (
+              <div key={club.alt} style={{ textAlign: "center" }}>
+                <img
+                  src={club.src}
+                  alt={club.alt}
+                  style={{ width: "44px", height: "44px", objectFit: "contain", borderRadius: "50%" }}
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = "none";
+                    ((e.target as HTMLImageElement).nextElementSibling as HTMLElement).style.display = "flex";
+                  }}
+                />
+                <div style={{
+                  display: "none", width: "44px", height: "44px", margin: "0 auto",
+                  background: "#f3f4f6", borderRadius: "50%", alignItems: "center",
+                  justifyContent: "center", fontSize: "0.6rem", color: "#9ca3af", fontWeight: 600,
+                }}>
+                  {club.label.charAt(0)}
+                </div>
+                <p style={{ fontSize: "0.65rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>{club.label}</p>
+              </div>
+            ))}
+          </div>
         </div>
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
-            <label htmlFor="usn" className="label">
-              USN
-            </label>
             <input
               id="usn"
               type="text"
@@ -139,6 +163,14 @@ export default function HomePage() {
               style={{ color: "var(--accent-primary)", textDecoration: "none", fontWeight: "600" }}
             >
               Register as Guest
+            </a>
+          </p>
+          <p style={{ color: "var(--text-muted)", fontSize: "0.75rem", marginTop: "1rem" }}>
+            <a
+              href="/admin/login"
+              style={{ color: "var(--text-muted)", textDecoration: "none" }}
+            >
+              Admin Panel →
             </a>
           </p>
         </div>
