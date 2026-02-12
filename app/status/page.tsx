@@ -209,9 +209,9 @@ export default function StatusPage() {
                 <div className="text-center mb-6">
                     <div
                         style={{
-                            width: "80px",
-                            height: "80px",
-                            margin: "0 auto 1.5rem",
+                            width: "64px",
+                            height: "64px",
+                            margin: "0 auto 1rem",
                             background: "#f3f4f6",
                             border: "2px solid #374151",
                             borderRadius: "50%",
@@ -220,9 +220,9 @@ export default function StatusPage() {
                             justifyContent: "center",
                         }}
                     >
-                        <CheckCircle size={40} color="#374151" />
+                        <CheckCircle size={32} color="#374151" />
                     </div>
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "700", marginBottom: "0.5rem" }}>
+                    <h1 style={{ fontSize: "clamp(1.25rem, 5vw, 1.875rem)", fontWeight: "700", marginBottom: "0.5rem" }}>
                         You're Checked In
                     </h1>
                     <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>
@@ -234,8 +234,8 @@ export default function StatusPage() {
                     style={{
                         background: "var(--bg-secondary)",
                         borderRadius: "0.75rem",
-                        padding: "1.5rem",
-                        marginBottom: "2rem",
+                        padding: "1.25rem",
+                        marginBottom: "1.5rem",
                     }}
                 >
                     <div style={{ marginBottom: "1rem" }}>
@@ -278,13 +278,13 @@ export default function StatusPage() {
                     }}
                     onClick={toggleNotifications}
                 >
-                    <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "0.5rem", flex: 1, minWidth: 0 }}>
                         {notificationsEnabled ? (
                             <Bell size={18} color="#374151" />
                         ) : (
                             <BellOff size={18} color="var(--text-muted)" />
                         )}
-                        <div>
+                        <div style={{ flex: 1, minWidth: 0 }}>
                             <p style={{ fontSize: "0.85rem", fontWeight: 500, color: notificationsEnabled ? "#374151" : "var(--text-primary)" }}>
                                 {notificationsEnabled ? "Reminders On" : "Enable Reminders"}
                             </p>

@@ -95,12 +95,12 @@ export default function HomePage() {
             </div>
           </div>
 
-          <h1 style={{ fontSize: "1.875rem", fontWeight: "700", marginBottom: "0.5rem" }}>
+          <h1 style={{ fontSize: "clamp(1.25rem, 5vw, 1.875rem)", fontWeight: "700", marginBottom: "0.5rem" }}>
             Sahyadri Launchpad
           </h1>
 
           {/* Club Logos */}
-          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1.5rem", marginBottom: "0.5rem" }}>
+          <div style={{ display: "flex", justifyContent: "center", alignItems: "center", gap: "1rem", marginBottom: "0.5rem", flexWrap: "wrap" }}>
             {[
               { src: "/logos/sosc.png", alt: "SOSC", label: "SOSC" },
               { src: "/logos/challengers.png", alt: "Challengers", label: "Challengers" },

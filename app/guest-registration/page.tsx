@@ -86,8 +86,8 @@ export default function GuestRegistrationPage() {
                 <div className="text-center mb-6">
                     <div
                         style={{
-                            width: "64px",
-                            height: "64px",
+                            width: "56px",
+                            height: "56px",
                             margin: "0 auto 1rem",
                             background: "#374151",
                             borderRadius: "50%",
@@ -96,9 +96,9 @@ export default function GuestRegistrationPage() {
                             justifyContent: "center",
                         }}
                     >
-                        <UserPlus size={32} color="white" />
+                        <UserPlus size={28} color="white" />
                     </div>
-                    <h1 style={{ fontSize: "1.875rem", fontWeight: "700", marginBottom: "0.5rem" }}>
+                    <h1 style={{ fontSize: "clamp(1.25rem, 5vw, 1.875rem)", fontWeight: "700", marginBottom: "0.5rem" }}>
                         Guest Registration
                     </h1>
                     <p style={{ color: "var(--text-secondary)", fontSize: "1rem" }}>

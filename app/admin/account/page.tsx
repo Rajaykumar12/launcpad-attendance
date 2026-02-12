@@ -143,7 +143,7 @@ export default function AdminAccountPage() {
                 </div>
 
                 <div style={{
-                    display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",
+                    display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: "1rem",
                     padding: "1rem", background: "var(--bg-secondary)", borderRadius: "0.75rem",
                     marginBottom: "1.25rem", fontSize: "0.85rem",
                 }}>
